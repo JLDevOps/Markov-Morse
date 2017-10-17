@@ -33,6 +33,7 @@ Use this to generate a markov-chain sentence from the provided file in the text_
 1. ```generate_markov_morse(filename, file_format, number_of_sentences)```
 
 Use this to provide your own input via prompt:
+
 2. ```input_prompt()```
 
 ### To Run with Current Setup
