@@ -41,7 +41,7 @@ def generate_morse_code(sentence_list):
     pygame.init()
     for i in range(len(sentence_list)):
         sentence = str(sentence_list[i])
-        new_string = re.sub('[!@#$?={}|^*&()_:[].,-;<>"/`~\']', '', sentence)
+        new_string = re.sub('[!@#$?={}|^*&()_:[,\].\-;<>\"/`~\\\'+%]', '', sentence)
         verify(new_string)
         if new_string is not None:
             print new_string
