@@ -1,4 +1,5 @@
 import re
+import sys
 import time
 
 import pygame
@@ -24,7 +25,9 @@ CODE = {'A': '.-', 'B': '-...', 'C': '-.-.',
 ONE_UNIT = 0.5
 THREE_UNITS = 3 * ONE_UNIT
 SEVEN_UNITS = 7 * ONE_UNIT
-PATH = 'morse_sound_files/'
+dir = os.path.dirname(__file__)
+oog_PATH = 'morse_sound_files/'
+PATH = os.path.join(dir, oog_PATH)
 
 
 def verify(string):
@@ -38,7 +41,7 @@ def generate_morse_code(sentence_list):
     pygame.init()
     for i in range(len(sentence_list)):
         sentence = str(sentence_list[i])
-        new_string = re.sub('[!@#$.,-;<>"/`~\']', '', sentence)
+        new_string = re.sub('[!@#$?={}|^*&()_:[].,-;<>"/`~\']', '', sentence)
         verify(new_string)
         if new_string is not None:
             print new_string
