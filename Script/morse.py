@@ -74,5 +74,5 @@ def input_prompt():
             time.sleep(THREE_UNITS)
 
 ## For testing purposes
-# if __name__ == "__main__":
-#     generate_markov_morse("sherlock", "txt", 1)
+if __name__ == "__main__":
+    generate_markov_morse("sherlock", "txt", 1)
