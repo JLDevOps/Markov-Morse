@@ -38,7 +38,7 @@ def verify(string):
 
 
 def generate_morse_code(sentence_list):
-    pygame.init()
+    pygame.mixer.init()
     for i in range(len(sentence_list)):
         sentence = str(sentence_list[i])
         new_string = re.sub('[!@#$?={}|^*&()_:[,\].\-;<>\"/`~\\\'+%]', '', sentence)
