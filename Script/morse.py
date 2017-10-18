@@ -62,7 +62,7 @@ def generate_morse_code(sentence_list):
                     pygame.mixer.music.play()
                     morse_char.append(''.join(code))
                     time.sleep(THREE_UNITS)
-    morse_code = "".join([str(i) for i in morse_char])
+    morse_code = " ".join([str(i) for i in morse_char])
     # print "Morse Code is : " + morse_code  ##Testing purposes
     return morse_code
 
