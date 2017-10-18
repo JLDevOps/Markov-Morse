@@ -25,6 +25,7 @@ CODE = {'A': '.-', 'B': '-...', 'C': '-.-.',
 ONE_UNIT = 0.5
 THREE_UNITS = 3 * ONE_UNIT
 SEVEN_UNITS = 7 * ONE_UNIT
+
 dir = os.path.dirname(__file__)
 oog_PATH = 'morse_sound_files/'
 PATH = os.path.join(dir, oog_PATH)
@@ -39,21 +40,30 @@ def verify(string):
 
 def generate_morse_code(sentence_list):
     pygame.mixer.init()
+
     for i in range(len(sentence_list)):
         sentence = str(sentence_list[i])
         new_string = re.sub('[!@#$?={}|^*&()_:[,\].\-;<>\"/`~\\\'+%]', '', sentence)
         verify(new_string)
+        morse_char = []
+
         if new_string is not None:
-            print new_string
+            # print new_string ## Testing purposes
             for char in new_string:
                 if char == ' ':
-                    print ' ' * 7,
+                    # print ' ' * 7,  ## Testing purposes
+                    morse_char.append(str(" " * 4))
                     time.sleep(SEVEN_UNITS)
                 else:
-                    print CODE[char.upper()],
+                    print CODE[char.upper()]
+                    code = CODE[char.upper()]
                     pygame.mixer.music.load(PATH + char.upper() + '_morse_code.ogg')
                     pygame.mixer.music.play()
+                    morse_char.append(''.join(code))
                     time.sleep(THREE_UNITS)
+    morse_code = "".join([str(i) for i in morse_char])
+    # print "Morse Code is : " + morse_code  ##Testing purposes
+    return morse_code
 
 
 def generate_markov_morse(filename, file_format, num_of_sentences):
