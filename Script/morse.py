@@ -1,4 +1,5 @@
 import re
+import subprocess
 import sys
 import time
 
@@ -51,7 +52,7 @@ def generate_morse_code(sentence_list):
             # print new_string ## Testing purposes
             for char in new_string:
                 if char == ' ':
-                    # print ' ' * 7,  ## Testing purposes
+                    print ' ' * 7,  ## Testing purposes
                     morse_char.append(str(" " * 4))
                     time.sleep(SEVEN_UNITS)
                 else:
@@ -72,8 +73,10 @@ def generate_markov_morse(filename, file_format, num_of_sentences):
 
 
 def input_prompt():
+    subprocess.call('clear', shell=True)
     print 'Welcome to Alphabet to Morse Code Translator v.01\n'
     msg = raw_input('Enter Message: ')
+    msg = re.sub('[!@#$?={}|^*&()_:[,\].\-;<>\"/`~\\\'+%]', '', msg)
     verify(msg)
     pygame.init()
     for char in msg:
@@ -88,4 +91,5 @@ def input_prompt():
 
 ## For testing purposes
 if __name__ == "__main__":
-    generate_markov_morse("sherlock", "txt", 1)
+    input_prompt()
+    # generate_markov_morse("sherlock", "txt", 1)
